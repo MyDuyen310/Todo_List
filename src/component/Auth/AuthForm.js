@@ -1,30 +1,41 @@
 import React, { useState, useRef, useContext } from "react";
 import "./AuthForm.css";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 import AuthContext from "../../store/auth-context";
 
 const isEmpty = (value) => value.trim() === "";
 const isNotEightChar = (value) => value.trim().length <= 5;
 const AuthForm = () => {
   const history = useHistory();
-  const nameInputRef = useRef();
-  const passwordInputRef = useRef();
   const authCtx = useContext(AuthContext);
   const [error, setError] = useState();
   const [isLogin, setisLogin] = useState(true);
-  const [isLoading, setisLoading] = useState(false);
   const [formInputsValidity, setformInputsValidity] = useState({
     name: true,
     password: true,
   });
-
+  const [values, setValues] = useState({
+    username: "",
+    password: "",
+  });
+  axios.defaults.headers = {
+    "content-type": "application/json",
+  };
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+    console.log(values);
+  };
   const switchAuthMode = () => {
     setisLogin((prevState) => !prevState);
   };
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    const enteredName = nameInputRef.current.value;
-    const enteredPassword = passwordInputRef.current.value;
+    const enteredName = values.username;
+    const enteredPassword = values.password;
     const enteredNameisValid = !isEmpty(enteredName);
     const enteredPasswordisValid = !isNotEightChar(enteredPassword);
     const formIsValid = enteredNameisValid && enteredPasswordisValid;
@@ -41,33 +52,18 @@ const AuthForm = () => {
     } else {
       url = "https://todo-mvc-api-typeorm.herokuapp.com/auth/register";
     }
-    fetch(url, {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({
-        username: enteredName,
-        password: enteredPassword,
-      }),
-    })
+    axios
+      .post(url, values)
       .then((res) => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          return res.json().then((data) => {
-            let errorMessage = "Authentication failed";
-            if (data && data.message) {
-              errorMessage = data.message;
-            }
-            throw new Error(errorMessage);
-          });
-        }
+        console.log(res);
+        return res.data;
       })
       .then((data) => {
         authCtx.login(data.token);
         history.push("/todo");
       })
       .catch((err) => {
-        setError(err.message);
+        setError("Authentication failed");
       });
   };
   const nameInputClasses = formInputsValidity.name
@@ -88,8 +84,9 @@ const AuthForm = () => {
             </label>
             <input
               type="text"
-              id="username"
-              ref={nameInputRef}
+              name="username"
+              value={values.username}
+              onChange={handleChange}
               placeholder="E.g: Nguyễn Văn A"
             />
             {!formInputsValidity.name && (
@@ -100,7 +97,12 @@ const AuthForm = () => {
             <label htmlFor="password" className="label">
               Password:
             </label>
-            <input type="password" id="password" ref={passwordInputRef} />
+            <input
+              type="password"
+              name="password"
+              value={values.password}
+              onChange={handleChange}
+            />
             {!formInputsValidity.password && (
               <p className="error">
                 Password must be have more than 8 character!

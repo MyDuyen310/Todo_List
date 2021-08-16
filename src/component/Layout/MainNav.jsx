@@ -8,7 +8,6 @@ export const MainNav = () => {
   const isLoggedIn = authCtx.isLoggedIn;
   const logoutHandler = () => {
     authCtx.logout();
-    // history.replace("/");
   };
   return (
     <header>
