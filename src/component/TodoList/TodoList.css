@@ -1,0 +1,230 @@
+.btn {
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.container-2 {
+    width: 80%;
+    margin: 0 auto;
+}
+
+h3 {
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    font-family: var(--ff-secondary);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--clr-blue);
+    flex: 1;
+}
+
+.form-control {
+    display: flex;
+    align-items: center;
+    margin: 20px auto;
+    width: 35%;
+
+}
+
+
+.grocery-header {
+    background-color: #E9EEF6;
+    height: 35vh;
+    padding-top: 50px;
+}
+
+.grocery {
+    padding: 7px 15px;
+    font-size: 14px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: none;
+    outline: none;
+    background: var(--clr-white);
+    flex: 1 0 auto;
+}
+
+.btn-submit {
+    text-transform: capitalize;
+    padding: 7px;
+    background: var(--clr-blue-2);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 200px; */
+    margin-left: 20px;
+}
+
+.search input[type="text"] {
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+    width: 0px;
+    color: var(--clr-pink-2);
+    font-family: var(--ff-primary);
+    transition: 0.8s ease;
+}
+
+.search:hover input,
+.search input:focus {
+    width: 150px;
+}
+
+.search .btn-search {
+    background: transparent;
+    outline: none;
+    border: none;
+    color: var(--clr-pink-2);
+    margin: auto;
+}
+
+.btn-submit:hover {
+    background: var(--clr-blue-3);
+    color: var(--clr-white);
+}
+
+.toggle {
+    margin-right: 10px;
+}
+
+.grocery-list .status {
+    flex: 1;
+}
+
+.todo-card {
+    width: calc(25% - 40px);
+    padding: 20px;
+    height: 200px;
+    margin: 20px;
+    background-color: var(--clr-white);
+    border-radius: 5px;
+    border-top: 3px solid;
+    position: relative;
+    box-shadow: var(--dark-shadow);
+    transition: 0.3s ease;
+}
+
+.todo-card:hover {
+    transform: scale(1.1);
+}
+
+.todo-card .date {
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.todo-card label {
+    margin-top: 20px;
+}
+
+.grocery-list input[type="text"] {
+    padding: 1px 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 15px;
+    outline: none;
+}
+
+.grocery-container {
+    display: flex;
+    align-items: center;
+    margin: 20px -20px;
+    flex-wrap: wrap;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin-left: 20px;
+    position: absolute;
+    bottom: 10%;
+    right: 10%
+}
+
+.btn-container i {
+    font-size: 15px;
+}
+
+.edit-btn,
+.save-btn {
+    margin-right: 10px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.todo-card.active {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+
+.filter-container {
+    flex: 1;
+    text-align: center;
+}
+
+footer {
+    font-size: 20px;
+    color: var(--clr-pink-1);
+}
+
+footer ul li {
+    display: inline-block;
+}
+
+.filter-btn {
+    background-color: transparent;
+    padding: 2px 5px;
+    border: none;
+    font-size: 15px;
+    font-family: var(--ff-primary);
+    text-transform: capitalize;
+    margin: 0 5px;
+    color: var(--clr-pink-1);
+}
+
+.filter-btn.selected {
+    border: 1px solid var(--clr-pink-1);
+    border-radius: 3px;
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .form-control {
+        width: 50%;
+    }
+
+    .todo-card {
+        width: calc(50% - 40px);
+    }
+}
+
+@media (max-width: 767px) {
+    .form-control {
+        width: 90%;
+    }
+
+    .todo-card {
+        width: 100%;
+    }
+}

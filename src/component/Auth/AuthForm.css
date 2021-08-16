@@ -1,0 +1,143 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700&display=swap");
+
+:root {
+    --ff-primary: "Open Sans", "sans-serif";
+    --ff-secondary: "Roboto", "sans-serif";
+    --clr-white: #fff;
+    --clr-black: #000;
+    --clr-primary-2: hsl(205, 78%, 60%);
+    --clr-blue: #063251;
+    --clr-blue-2: #a5d5f8;
+    --clr-blue-3: #49a6e9;
+    --clr-pink-1: #e66b6c;
+    --clr-pink-2: #ec4444;
+    --clr-grey: #f4f4f7;
+    --clr-green: #6be675;
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    font-family: var(--ff-primary);
+    background: var(--clr-grey);
+}
+
+.container {
+    max-width: 400px;
+    min-width: 300px;
+    margin: 50px auto;
+    /* padding: 0 50px; */
+}
+
+/* 
+.register,
+.login {
+  padding: 0 50px;
+} */
+
+.auth {
+    background: #fff;
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 5px 8px rgb(0, 0, 0, 0.08);
+}
+
+.auth h1 {
+    text-align: center;
+    position: relative;
+    font-size: 30px;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    font-family: var(--ff-secondary);
+    font-weight: 700;
+    color: var(--clr-blue);
+}
+
+.auth h1::after {
+    position: absolute;
+    content: "";
+    height: 5px;
+    bottom: -15px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 40px;
+    background: #7F00FF;
+    transition: 0.25s;
+}
+
+
+.control label {
+    display: block;
+    padding: 10px 0;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.control input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.action {
+    text-align: center;
+}
+
+.action .btnsubmit {
+    background: #AE00FF;
+    margin-top: 20px;
+    border: 2px solid #AE00FF;
+    font-family: var(--ff-secondary);
+    font-weight: 700;
+    letter-spacing: 3px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 25px;
+    padding: 15px;
+    color: #fff;
+}
+
+.action .btnsubmit:hover {
+    background: #fff;
+    color: #AE00FF;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+    padding-left: 10px;
+}
+
+.control input:focus {
+    border: 2px solid #AE00FF;
+}
+
+.btntoggle {
+    background: transparent;
+    border: none;
+    margin-top: 20px;
+    color: #AE00FF;
+    letter-spacing: 3px;
+}
+
+.invalid input {
+    border: 2px solid red;
+}
+
+.btntoggle:hover {
+    color: #8204bd;
+}

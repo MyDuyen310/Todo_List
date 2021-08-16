@@ -1,0 +1,9 @@
+.welcome {
+    text-align: center;
+    font-size: 70px;
+    color: #AE00FF;
+    font-weight: 700;
+    font-family: var(--ff-secondary);
+    margin-top: 100px;
+    letter-spacing: 5px;
+}
